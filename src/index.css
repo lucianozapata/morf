@@ -27,6 +27,16 @@ html, body {
   width: 100%;
 }
 
+#morfDiv{
+  flex-direction: row;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
 #textDiv{
   color: black
 }
@@ -40,4 +50,11 @@ html, body {
 .one{
   margin: 10px;
 
+}
+
+#morfButtons{
+  margin: 10px;
+  height: 50px;
+  width: 50px;
+  
 }
