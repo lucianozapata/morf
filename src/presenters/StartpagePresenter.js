@@ -6,13 +6,14 @@ export default function StartpagePresenter() {
 
     const [morfName, setMorfName] = React.useState("");
     const [splittedMorf, setSplittedMorf] = React.useState(null)
+    
 
     return (
         
         splittedMorf !== null ? (
-            <DragView/>
+            <DragView finalMorfNames={splittedMorf.split("")}/>
         ) : (
-            <MorfView morfNameFunction={(name) => setMorfName(name)} morfSplittedFunction={(splittedNames) => setSplittedMorf(splittedNames)}/>
+            <MorfView morfNameFunction={(name) => setMorfName(name.current.value)} morfSplittedFunction={(splittedNames) => setSplittedMorf(splittedNames.current.value)}/>
         )
 
 

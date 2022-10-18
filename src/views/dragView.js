@@ -3,19 +3,11 @@ import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd"
 import { InputGroup } from "react-bootstrap";
 
 
-export default function dragView() {
+export default function dragView(props) {
+    
+    console.log(props.finalMorfNames)
 
-    const [box, setBox] = React.useState(
-        [
-            {
-                id: 0,
-                bg: "red"
-            }, 
-            {
-                id:1, 
-                bg: "green"
-            }
-        ]);
+    const [box, setBox] = React.useState(props.finalMorfNames);
 
 
     function handleDragEnd(result) {
@@ -34,11 +26,12 @@ export default function dragView() {
             <Droppable droppableId="boxes">
                 {(provided) => (
                     <ul ref={provided.innerRef} {...provided.droppableProps}>
-                        {box.map(({id,bg}, index) => 
-                            <Draggable key={id} draggableId={id.toString()} index={index}>
+                        {box.map((name, index) => 
+                            <Draggable key={index} draggableId={index.toString()} index={index}>
                                 {(provided) => (
                                     <li ref={provided.innerRef} {...provided.dragHandleProps} {...provided.draggableProps}> 
-                                        <div className={`box ${bg}`}>
+                                        <div className={`box ${"red"}`}>
+                                            {name}
                                         </div>
                                     </li>
                                 )}
