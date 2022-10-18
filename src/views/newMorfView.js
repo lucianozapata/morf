@@ -3,36 +3,19 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 
+
+
 export default function morfView(props) {
 
     
 
     // Hanterare av det som skrivs i inputen
     const morfNameRef = React.useRef()
-    const [splittedMorf, setSplittedMorf] = React.useState(null)
+    
+    
 
   
     return (
-
-
-        <>
-
-            {splittedMorf !== null ? (
-                
-                <>
-                <div style={{textAlign: "center", fontSize: "100px", color: "white"}}> Morfius</div>
-                <div id="morfDiv">
-                    {splittedMorf.map((name,index) => {
-                        return (
-                            <Button id="morfButtons" variant="success">{name}</Button>
-                        )
-
-                    }) }
-                </div>
-                </>
-
-
-            ) : (
                 <>
                   <div style={{textAlign: "center", fontSize: "100px", color: "white"}}> Morfius</div>
                     <div id="flexDiv">
@@ -56,10 +39,10 @@ export default function morfView(props) {
                         </div>
                   </div>
                 </>
-            )}
+            
           
         
-        </>
+        
     )
 
 
@@ -68,8 +51,7 @@ export default function morfView(props) {
     }
 
     function startMorf(e) {
-        let splittedMorfs = props.morfName.current.value.split("");
-        setSplittedMorf(splittedMorfs);
+        props.morfSplittedFunction(morfNameRef);
     }
     
 
