@@ -1,11 +1,11 @@
 import React from "react";
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd"
-import { InputGroup } from "react-bootstrap";
+import Box from "../components/Box"
+
+
 
 
 export default function dragView(props) {
-    
-    console.log(props.finalMorfNames)
 
     const [box, setBox] = React.useState(props.finalMorfNames);
 
@@ -17,33 +17,43 @@ export default function dragView(props) {
         const [draggedItem] = newBox.splice(result.source.index, 1);
         newBox.splice(result.destination.index,0,draggedItem);
         setBox(newBox);
+    }
 
+    // Kollar så att inputen inte är mellanslag
+    function validInput(char) {
+        return char !== " "
     }
 
     return (
-        
-        <DragDropContext onDragEnd={handleDragEnd}>
-            <Droppable droppableId="boxes">
-                {(provided) => (
-                    <ul ref={provided.innerRef} {...provided.droppableProps}>
-                        {box.map((name, index) => 
-                            <Draggable key={index} draggableId={index.toString()} index={index}>
-                                {(provided) => (
-                                    <li ref={provided.innerRef} {...provided.dragHandleProps} {...provided.draggableProps}> 
-                                        <div className={`box ${"red"}`}>
-                                            {name}
-                                        </div>
-                                    </li>
+        <div id="testingdiv">
+                <DragDropContext onDragEnd={handleDragEnd}>
+                    <Droppable droppableId="boxes" direction="horizontal">
+                        {(provided) => (
+                            <ul className="morfList" ref={provided.innerRef} {...provided.droppableProps}>
+                                <div id="newDiv">
+                                {box.map((name, index) => 
+                                    validInput(name) && (
+
+                                        <Draggable key={index} draggableId={index.toString()} index={index}>
+                                            {(provided) => (
+                                                <li ref={provided.innerRef} {...provided.dragHandleProps} {...provided.draggableProps}> 
+                                                    <Box text={`${name}`}/>
+                                                </li>
+                                            )}
+                                            
+                                        </Draggable>
+                                    )
+                                     
                                 )}
-                                    
-                            </Draggable>
+                                {provided.placeholder}
+                                </div>
+
+                            </ul>
+                            
                         )}
-                        {provided.placeholder}
-                    </ul>
-                )}
-                
-            </Droppable>
-        </DragDropContext>
-        
+                        
+                    </Droppable>
+                </DragDropContext>
+        </div>
     )
 }
