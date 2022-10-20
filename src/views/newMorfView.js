@@ -12,7 +12,6 @@ export default function morfView(props) {
   
     return (
                 <>
-
                   <div id = "morfius"> Morfius</div>
                     <div id="flexDiv">
                         <div className="one" style={{color:"white"}}>

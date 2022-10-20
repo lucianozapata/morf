@@ -1,6 +1,8 @@
 import React from "react";
 import MorfView from "../views/newMorfView";
 import DragView from "../views/dragView";
+import NavBar from "../components/NavBar";
+import { Navbar } from "react-bootstrap";
 
 export default function StartpagePresenter() {
 
@@ -8,12 +10,15 @@ export default function StartpagePresenter() {
     
 
     return (
+        <>
+        <NavBar/>
         
-        splittedMorf !== null ? (
+       {splittedMorf !== null ? (
             <DragView finalMorfNames={splittedMorf}/>
         ) : (
             <MorfView morfSplittedFunction={(splittedNames) => setSplittedMorf(splittedNames.current.value.split(""))}/>
-        )
+        )}
+        </>
 
 
             
