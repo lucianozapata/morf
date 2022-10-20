@@ -1,6 +1,7 @@
 import React from "react";
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd"
 import Box from "../components/Box"
+import Button from "react-bootstrap"
 
 
 
@@ -26,10 +27,11 @@ export default function dragView(props) {
 
     return (
         <div id="testingdiv">
+            <div id="dropDiv">
                 <DragDropContext onDragEnd={handleDragEnd}>
                     <Droppable droppableId="boxes" direction="horizontal">
                         {(provided) => (
-                            <ul className="morfList" ref={provided.innerRef} {...provided.droppableProps}>
+                            <div className="morfList" ref={provided.innerRef} {...provided.droppableProps}>
                                 <div id="newDiv">
                                 {box.map((name, index) => 
                                     validInput(name) && (
@@ -48,12 +50,16 @@ export default function dragView(props) {
                                 {provided.placeholder}
                                 </div>
 
-                            </ul>
+                            </div>
                             
                         )}
                         
                     </Droppable>
                 </DragDropContext>
+            </div>
+            <div id="shuffleDiv">
+                <button id="buttonDiv">Randomize</button>
+            </div>
         </div>
     )
 }
