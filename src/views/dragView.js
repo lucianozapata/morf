@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd"
 import Box from "../components/Box"
 import Button from "react-bootstrap"
@@ -8,21 +8,30 @@ import Button from "react-bootstrap"
 
 export default function dragView(props) {
 
-    const [box, setBox] = React.useState(props.finalMorfNames);
+    const [splittedList, setSplittedList] = React.useState(props.finalMorfNames);
 
+    
 
     function handleDragEnd(result) {
 
         if(!result.destination) return;
-        const newBox= Array.from(box);
-        const [draggedItem] = newBox.splice(result.source.index, 1);
-        newBox.splice(result.destination.index,0,draggedItem);
-        setBox(newBox);
+        const newSplittedList= Array.from(splittedList);
+        const [draggedItem] = newSplittedList.splice(result.source.index, 1);
+        newSplittedList.splice(result.destination.index,0,draggedItem);
+        setSplittedList(newSplittedList);
     }
 
     // Kollar så att inputen inte är mellanslag
     function validInput(char) {
         return char !== " "
+    }
+
+    // rör om hela namnet så att man får en slumpad morf.
+    function shuffleName(e) {
+        const shuffledList = splittedList.sort(() => Math.random() - 0.5);
+        setSplittedList([...shuffledList]);
+
+        
     }
 
     return (
@@ -33,7 +42,7 @@ export default function dragView(props) {
                         {(provided) => (
                             <div className="morfList" ref={provided.innerRef} {...provided.droppableProps}>
                                 <div id="newDiv">
-                                {box.map((name, index) => 
+                                {splittedList.map((name, index) => 
                                     validInput(name) && (
 
                                         <Draggable key={index} draggableId={index.toString()} index={index}>
@@ -58,7 +67,7 @@ export default function dragView(props) {
                 </DragDropContext>
             </div>
             <div id="shuffleDiv">
-                <button id="buttonDiv">Randomize</button>
+                <button onClick={shuffleName} id="buttonDiv">Randomize</button>
             </div>
         </div>
     )

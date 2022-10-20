@@ -7,13 +7,8 @@ import Button from 'react-bootstrap/Button';
 
 export default function morfView(props) {
 
-    
-
     // Hanterare av det som skrivs i inputen
     const morfNameRef = React.useRef()
-    
-    
-
   
     return (
                 <>
@@ -26,7 +21,6 @@ export default function morfView(props) {
                         <div className="one">
                             <Form.Control
                                 ref={morfNameRef}
-                                onChange={handleMorfName}
                             />
                         </div>
                         <div className="one" style={{color:"white"}}>
@@ -45,11 +39,6 @@ export default function morfView(props) {
         
         
     )
-
-
-    function handleMorfName(e) {
-        props.morfNameFunction(morfNameRef);
-    }
 
     function startMorf(e) {
         props.morfSplittedFunction(morfNameRef);

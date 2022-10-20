@@ -4,20 +4,24 @@ import DragView from "../views/dragView";
 
 export default function StartpagePresenter() {
 
-    const [morfName, setMorfName] = React.useState("");
     const [splittedMorf, setSplittedMorf] = React.useState(null)
     
 
     return (
         
         splittedMorf !== null ? (
-            <DragView finalMorfNames={splittedMorf.split("")}/>
+            <DragView finalMorfNames={splittedMorf}/>
         ) : (
-            <MorfView morfNameFunction={(name) => setMorfName(name.current.value)} morfSplittedFunction={(splittedNames) => setSplittedMorf(splittedNames.current.value)}/>
+            <MorfView morfSplittedFunction={(splittedNames) => setSplittedMorf(splittedNames.current.value.split(""))}/>
         )
 
 
             
         
     )
+
+
+
+
+    
 }
