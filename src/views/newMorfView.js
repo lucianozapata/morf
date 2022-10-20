@@ -13,7 +13,7 @@ export default function morfView(props) {
     return (
                 <>
 
-                  <div style={{textAlign: "center", fontSize: "100px", color: "white"}}> Morfius</div>
+                  <div id = "morfius"> Morfius</div>
                     <div id="flexDiv">
                         <div className="one" style={{color:"white"}}>
                             <Form.Label>Skriv in namnet på Morfpersonen</Form.Label>
