@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd"
 import Box from "../components/Box"
-import Button from "react-bootstrap"
 
 
 
