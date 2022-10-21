@@ -1,6 +1,5 @@
 import React from "react";
 import "../css/box.css"
-import Badge from 'react-bootstrap/Badge';
 
 
 

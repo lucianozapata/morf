@@ -1,17 +1,23 @@
-// T
+import React from "react";
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
 
 export default function NavBar() {
+    
 
     return(
-        ""
-    //     <Navbar bg="light" variant="light">
-    //       <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    //       <Nav className="me-auto">
-    //         <Nav.Link href="#home">Home</Nav.Link>
-    //         <Nav.Link href="#features">Features</Nav.Link>
-    //         <Nav.Link href="#pricing">Pricing</Nav.Link>
-    //       </Nav>
-    //   </Navbar>
+        
+        <Navbar bg="#1d1d1b" variant="dark">
+        <Container>
+          <Nav className="m-auto" >
+            <Nav.Link href="#morfning">Morfnning</Nav.Link>
+            <Nav.Link href="#arkenollan">ÄrkenØllan</Nav.Link>
+            <Nav.Link href="#personal">Personal</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
         
         
     )
