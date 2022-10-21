@@ -12,9 +12,9 @@ export default function NavBar() {
         <Navbar bg="#1d1d1b" variant="dark">
         <Container>
           <Nav className="m-auto" >
-            <Nav.Link href="#morfning">Morfnning</Nav.Link>
-            <Nav.Link href="#arkenollan">ÄrkenØllan</Nav.Link>
-            <Nav.Link href="#personal">Personal</Nav.Link>
+            <Nav.Link href="morfning">Morfning</Nav.Link>
+            <Nav.Link href="arkenollan">ÄrkenØllan</Nav.Link>
+            <Nav.Link href="personal">Personal</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
