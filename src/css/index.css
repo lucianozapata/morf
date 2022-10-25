@@ -125,3 +125,22 @@ html, body {
 .navbar{
   margin-bottom: 0px;
 }
+
+.namnBorder{
+  color:white;
+  border-color: green;
+  border-width: 1px;
+  border-style: solid;
+  width: 10vh;
+  margin: 0.2vh;
+  text-align: center;
+
+}
+
+#personalVyDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
