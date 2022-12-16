@@ -10,8 +10,8 @@ export default function PersonalView() {
             {mockData.map((personal) => {
                 return (
                     <div key={personal.namn}>
-                        <Link to={`/morfning/${personal.namn}`}>
-                        <div className="namnBorder">{personal.namn}</div>
+                        <Link to={`/morfning/${personal.name}`}>
+                        <div className="namnBorder">{personal.name}</div>
                         </Link>
                     </div>
                 )
